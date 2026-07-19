@@ -1,0 +1,22 @@
+name: CI Validate
+
+# Gatilhos para disparar nos Pull Requests para develop e main
+on:
+  pull_request:
+    branches: [ develop, main ]
+
+jobs:
+  # Job de Validação Estrutural (foco do desafio)
+  validate-code:
+    name: Validate Code
+    runs-on: ubuntu-latest # Máquina virtual padrão para consistência
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v5 # Clona o código para o servidor de testes
+
+      - name: Validate HTML/CSS
+        run: |
+          echo "Executando validação estrutural do Dashboard..."
+          # Aqui você pode adicionar comandos de linter para HTML/CSS
+          # Exemplo: npm run lint:html ou validador específico
